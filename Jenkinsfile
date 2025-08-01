@@ -11,6 +11,8 @@ pipeline {
          stage ("terraform init") {
              steps {
                  sh ("terraform init -reconfigure") 
+                 steps {
+                sh 'terraform plan -lock=false'
              }
          }
         
@@ -23,8 +25,7 @@ pipeline {
         stage ("Action") {
             steps {
                 echo "Terraform action is --> ${action}"
-                 steps {
-                sh 'terraform plan -lock=false'
+                 
                 sh ('terraform ${action} --auto-approve') 
                
 }
