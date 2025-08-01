@@ -11,9 +11,10 @@ resource "aws_vpc" "main" {
 }
 
 #Create security group with firewall rules
-resource "aws_security_group" "jenkins-sg-2022" {
-  name        = var.security_group
-  description = "security group for Ec2 instance"
+resource "aws_security_group" "my_sg" {
+  name        = "my-security-group"
+  description = "Allow SSH"
+  vpc_id      = "vpc-0ab51b1e8e9f80751"
 
   ingress {
     from_port   = 8080
