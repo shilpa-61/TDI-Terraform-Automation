@@ -3,6 +3,6 @@ terraform {
     bucket = "mydev-terraform-project-tdi-batch"
     key = "main"
     region = "us-east-1"
-    dynamodb_table = "dyna-table"
+    dynamodb_table = "dynamodb_table"
   }
 }
