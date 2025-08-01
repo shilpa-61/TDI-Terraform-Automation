@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket = "mydev-terraform-project-tdi-batch-march"
+    bucket = "mydev-1-pro"
     key = "main"
     region = "us-east-1"
-    dynamodb_table = "dyna-table"
+    dynamodb_table = "dyna-table-a"
   }
 }
