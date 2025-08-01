@@ -15,6 +15,7 @@ pipeline {
                 sh ('terraform plan -lock=false')
              }
          }
+         }
         
         stage ("terraform Plan") {
             steps {
@@ -31,5 +32,4 @@ pipeline {
 }
            }
         }
-    }
 }
