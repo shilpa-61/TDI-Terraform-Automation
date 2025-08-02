@@ -2,6 +2,16 @@ provider "aws" {
   region = var.aws_region
 }
 
+resource "aws_subnet" "main_subnet" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "172.16.1.0/24"
+  availability_zone       = "ap-south-1a"
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "main-subnet"
+  }
+}
+
 resource "aws_vpc" "main" {
   cidr_block = "172.16.0.0/16"
   instance_tenancy = "default"
@@ -44,14 +54,18 @@ resource "aws_security_group" "my_sg" {
 }
 
 resource "aws_instance" "myFirstInstance" {
-  ami           = var.ami_id
-  key_name = var.key_name
-  instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.my_sg.id]
-  tags= {
+  ami                         = var.ami_id
+  key_name                    = var.key_name
+  instance_type               = var.instance_type
+  vpc_security_group_ids      = [aws_security_group.my_sg.id]
+  subnet_id                   = aws_subnet.main_subnet.id
+  associate_public_ip_address = true
+
+  tags = {
     Name = var.tag_name
   }
 }
+
 
 # Create Elastic IP address
 resource "aws_eip" "myFirstInstance" {
