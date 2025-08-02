@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "mydev-terraform-project-akki-project-1"
+    bucket = "my-dev-terraform-project-tdi"
     key = "main"
     region = "ap-south-1"
     dynamodb_table = "my-dynamodb_table"
