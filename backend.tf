@@ -3,7 +3,6 @@ terraform {
     bucket = "auto-jenk-terra"
     key = "main"
     region = "ap-south-1"
-    dynamodb_table = "dynadb-a-j-t
-"
+    dynamodb_table = "dynadb-a-j-t"
   }
 }
