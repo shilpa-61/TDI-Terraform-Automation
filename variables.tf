@@ -27,10 +27,11 @@ variable "ami_id" {
     default     = "ami-020cba7c55df1f615" 
 }
 variable "versioning" {
-    type        = bool
-    description = "(Optional) A state of versioning."
-    default     = true
+  description = "Enable versioning for the S3 bucket"
+  type        = bool
+  default     = true
 }
+
 variable "acl" {
     type        = string
     description = " Defaults to private "
